@@ -1,38 +1,38 @@
 class Haversine {
   int earth = 6371;
-  float startLat, startLong, endLat, endLong;
+  double startLat, startLong, endLat, endLong;
 
   Haversine() {    
   }
   
-  void setCoord(float TstartLat, float TstartLong, float TendLat, float TendLong) {
+  void setCoord(double TstartLat, double TstartLong, double TendLat, double TendLong) {
     startLat = TstartLat;
     startLong = TstartLong;
     endLat = TendLat;
     endLong = TendLong;
   }
   
-  void setStart(float TstartLat, float TstartLong) {
+  void setStart(double TstartLat, double TstartLong) {
     startLat = TstartLat;
     startLong = TstartLong;    
   }
   
-  void setEnd(float TendLat, float TendLong) {    
+  void setEnd(double TendLat, double TendLong) {    
     endLat = TendLat;
     endLong = TendLong;
   }
 
-  float count() {
-    float dLat  = radians((endLat - startLat));
-    float dLong = radians((endLong - startLong));
-    startLat = radians(startLat);
-    endLat   = radians(endLat);
-    float a = haversin(dLat) + cos(startLat) * cos(endLat) * haversin(dLong);
-    float c = 2 * atan2(sqrt(a), sqrt(1 - a));
+  double count() {
+    double dLat  = radians((float)(endLat - startLat));
+    double dLong = radians((float)(endLong - startLong));
+    startLat = radians((float)startLat);
+    endLat   = radians((float)endLat);
+    double a = haversin(dLat) + cos((float)startLat) * cos((float)endLat) * haversin(dLong);
+    double c = 2 * atan2(sqrt((float)a), sqrt((float)(1 - a)));
     return earth * c * 1000;
   }
 
-  float haversin(float val) {
-    return pow(sin(val/2), 2);
+  double haversin(double val) {
+    return pow(sin((float)(val/2)), 2);
   }
 }

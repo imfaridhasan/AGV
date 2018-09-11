@@ -66,13 +66,14 @@ String shortifyPortName(String portName, int maxlen)
 
 //data-data
 int switchbuttonvar;
-float baterai=50;
+float baterai=100;
 float baterai1=50;
 int jmlsatelit=10;
 float[] datamasuk;
-float lat, lng, tklatnow, tklonnow, jarak, jarakpertama, roll, pitch;
-float[] tklat = new float[100];
-float[] tklon = new float[100];
+float  jarak, jarakpertama, roll, pitch;
+float tklatnow, tklonnow,lat=-7.765806, lng=110.374816;
+double[] tklat = new double[100];
+double[] tklon = new double[100];
 int i=0, l=0, derajatselisih=0, derajatbelok, heading, headingraw, sudutbelokbulat, camtoggle, toggleinfo, zoomrightnow;
 float totaljarak, p1x, p1y, p2x, p2y, p3x, p3y;
 double angleDeg, p12, p13, p23, sudutbelok, derajatarahbelok;
@@ -226,15 +227,6 @@ public void draw() {
 
 
 public void keyPressed() {
-  if (key == 'i')
- 
-    if (key == 'o')
-  currentMap.mapDisplay.resize(width, height);
-  
-   zoomrightnow=currentMap.getZoomLevel();
-  currentMap.setTweening(false);
-    currentMap.zoomAndPanTo(new Location(-7.765806, 110.374816), zoomrightnow);
-    currentMap.setTweening(true);
   if (key == '+')
     currentMap.zoomIn();
   if (key == '-')
@@ -246,21 +238,33 @@ public void keyPressed() {
   if (key == '1') {
     zoomrightnow=currentMap.getZoomLevel();
     currentMap = map1;
-    currentMap.zoomAndPanTo(new Location(-7.765806, 110.374816), zoomrightnow);
+    if (jmlsatelit>0 && lat!=0 && lng!=0) {
+     currentMap.zoomAndPanTo(new Location(lat, lng), zoomrightnow);
+     }
+     else{
+     currentMap.zoomAndPanTo(new Location(-7.765806, 110.374816), zoomrightnow);}
     compass = new CompassUI(this, currentMap);
     barScale = new BarScaleUI(this, currentMap, width-160, height-60);
     barScale.setStyle(color(60, 120), 5, 5, font1);
   } else if (key == '2') {
     zoomrightnow=currentMap.getZoomLevel();
     currentMap = map2;
-    currentMap.zoomAndPanTo(new Location(-7.765806, 110.374816), zoomrightnow);
+    if (jmlsatelit>0 && lat!=0 && lng!=0) {
+     currentMap.zoomAndPanTo(new Location(lat, lng), zoomrightnow);
+     }
+     else{
+     currentMap.zoomAndPanTo(new Location(-7.765806, 110.374816), zoomrightnow);}
     compass = new CompassUI(this, currentMap);
     barScale = new BarScaleUI(this, currentMap, width-160, height-60);
     barScale.setStyle(color(60, 120), 5, 5, font1);
   } else if (key == '3') {
     zoomrightnow=currentMap.getZoomLevel();
     currentMap = map3;
-    currentMap.zoomAndPanTo(new Location(-7.765806, 110.374816), zoomrightnow);
+    if (jmlsatelit>0 && lat!=0 && lng!=0) {
+     currentMap.zoomAndPanTo(new Location(lat, lng), zoomrightnow);
+     }
+     else{
+     currentMap.zoomAndPanTo(new Location(-7.765806, 110.374816), zoomrightnow);}
     compass = new CompassUI(this, currentMap);
     barScale = new BarScaleUI(this, currentMap, width-160, height-60);
     barScale.setStyle(color(60, 120), 5, 5, font1);
@@ -315,6 +319,7 @@ void mouseClicked() {
       i=i+1;
       tklatnow=location.getLat();
       tklonnow=location.getLon(); 
+      //String ya=location.getLat();
       tklat[i]=tklatnow;
       tklon[i]=tklonnow;
     }
@@ -356,7 +361,11 @@ void switchbutton(boolean theFlag) {
     map1.setTweening(false);
     currentMap.mapDisplay.resize(291, 164);
      zoomrightnow=currentMap.getZoomLevel();
-    currentMap.zoomAndPanTo(new Location(-7.765806, 110.374816), zoomrightnow);
+     if (jmlsatelit>0 && lat!=0 && lng!=0) {
+     currentMap.zoomAndPanTo(new Location(lat, lng), zoomrightnow);
+     }
+     else{
+     currentMap.zoomAndPanTo(new Location(-7.765806, 110.374816), zoomrightnow);}
     map1.setTweening(true);
      cp5.getController("togglecam").lock();
   }if (switchbuttonvar==0) {
@@ -364,7 +373,11 @@ void switchbutton(boolean theFlag) {
     map1.setTweening(false);
     currentMap.mapDisplay.resize(width, height);
     zoomrightnow=currentMap.getZoomLevel();
-    currentMap.zoomAndPanTo(new Location(-7.765806, 110.374816), zoomrightnow);
+    if (jmlsatelit>0 && lat!=0 && lng!=0) {
+     currentMap.zoomAndPanTo(new Location(lat, lng), zoomrightnow);
+     }
+     else{
+     currentMap.zoomAndPanTo(new Location(-7.765806, 110.374816), zoomrightnow);}
     map1.setTweening(true);
     cp5.getController("togglecam").unlock();
   }

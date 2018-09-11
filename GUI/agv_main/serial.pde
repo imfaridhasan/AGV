@@ -80,13 +80,15 @@ void kirimSerial() {
   //kirim = "*"+","+derajatbelok+","+i+","+666+"\n \r";
 
   if (serial_conect==1) {  
-    int depanlat= int(tklat[1]);
-    int depanlon= int(tklon[1]);
-    float belakanglat= tklat[1]-depanlat;
-    float belakanglon= tklon[1]-depanlon;
-    kirim = "*" + "," + tklat[1] + "," + tklon[1] + "," +"#" + "\n \r";
+    int depanlat= int((float)tklat[1]);
+    int depanlon= int((float)tklon[1]);
+    float belakanglat= (float)tklat[1]-depanlat;
+    float belakanglon= (float)tklon[1]-depanlon;
+//    
+    //kirim = "*" + "," + tklat[1] + "," + tklon[1] + "," +"#" + "\n \r";
+    kirim = "*" + "," + depanlat + "," + belakanglat + "," + depanlon + "," + belakanglon + "," + "#" + "\n \r";
     serial.write(kirim);
-    println(kirim + "  "+ depanlat+belakanglat+ "  "+depanlon+belakanglon);
+    println(kirim);
   }
 }
 

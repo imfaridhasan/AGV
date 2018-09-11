@@ -101,15 +101,15 @@ void loadmap() {
     }
     if (k==1) {
       hv.setCoord(lat, lng, tklat[1], tklon[1]);
-      totaljarak=hv.count();
+      totaljarak=(float)hv.count();
     }
     if (k>1) {
       hv.setCoord(tklat[k], tklon[k], tklat[k-1], tklon[k-1]);
-      totaljarak=totaljarak+hv.count();
+      totaljarak=totaljarak+(float)hv.count();
     }
 
     hv.setCoord(lat, lng, tklat[1], tklon[1]);
-    jarakpertama=hv.count();
+    jarakpertama=(float)hv.count();
 
     //geser array disini ketika kurang dari 2 meter
     if (jarakpertama<=2) {
