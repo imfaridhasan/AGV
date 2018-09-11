@@ -278,8 +278,13 @@ void loadmap() {
     textAlign(LEFT);
   }
   popMatrix();
-  
+  if(i==0){
+    for(int t=0; t<=99; t++) {
+      tklat[t]=0;
+      tklon[t]=0;
+    }
+  }
   //println(tklat[1] +"  "+ tklon[1]);
-  println(commListbox.isOpen() );
+  //println(commListbox.isOpen() );
 }
 
