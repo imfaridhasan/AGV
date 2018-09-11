@@ -189,35 +189,35 @@ void loadmap() {
     //tambah gambar
     //println(i);
     if (i==1) {
-      image(S, 1160, 75, 90, 90);
+      image(S, 1160, 100, 90, 90);
     }
     if (i>1) {
     if (derajatarahbelok>=0 && derajatarahbelok<=22.5) {
-      image(S, 1160, 75, 90, 90);
+      image(S, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>=337.5 && derajatarahbelok<=360) {
-      image(S, 1160, 75, 90, 90);
+      image(S, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>=67.5 && derajatarahbelok<112.5) {
-      image(R, 1160, 75, 90, 90);
+      image(R, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>22.5 && derajatarahbelok<67.5) {
-      image(R45, 1160, 75, 90, 90);
+      image(R45, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>247.5 && derajatarahbelok<292.5) {
-      image(L, 1160, 75, 90, 90);
+      image(L, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>=292.5 && derajatarahbelok<337.5) {
-      image(L45, 1160, 75, 90, 90);
+      image(L45, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>190 && derajatarahbelok<=247.5) {
-      image(LTAJAM, 1160, 75, 90, 90);
+      image(LTAJAM, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>=112.5 && derajatarahbelok<170) {
-      image(RTAJAM, 1160, 75, 90, 90);
+      image(RTAJAM, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>=170 && derajatarahbelok<=190) {
-      image(U, 1160, 75, 90, 90);
+      image(U, 1160, 100, 90, 90);
     }
     }
   }
@@ -230,35 +230,35 @@ void loadmap() {
     //tambah gambar
 
     if (i==1) {
-      image(S, 1160, 75, 90, 90);
+      image(S, 1160, 100, 90, 90);
     }
     if (i>1) {
     if (derajatarahbelok>=0 && derajatarahbelok<=22.5) {
-      image(S, 1160, 75, 90, 90);
+      image(S, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>=337.5 && derajatarahbelok<=360) {
-      image(S, 1160, 75, 90, 90);
+      image(S, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>=67.5 && derajatarahbelok<112.5) {
-      image(R, 1160, 75, 90, 90);
+      image(R, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>22.5 && derajatarahbelok<67.5) {
-      image(R45, 1160, 75, 90, 90);
+      image(R45, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>247.5 && derajatarahbelok<292.5) {
-      image(L, 1160, 75, 90, 90);
+      image(L, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>=292.5 && derajatarahbelok<337.5) {
-      image(L45, 1160, 75, 90, 90);
+      image(L45, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>190 && derajatarahbelok<=247.5) {
-      image(LTAJAM, 1160, 75, 90, 90);
+      image(LTAJAM, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>=112.5 && derajatarahbelok<170) {
-      image(RTAJAM, 1160, 75, 90, 90);
+      image(RTAJAM, 1160, 100, 90, 90);
     }
     if (derajatarahbelok>=170 && derajatarahbelok<=190) {
-      image(U, 1160, 75, 90, 90);
+      image(U, 1160, 100, 90, 90);
     }
     }
   }
@@ -274,9 +274,12 @@ void loadmap() {
     textAlign(CENTER);
     fill(0, 0, 0, 90);
     //text("100m", 195, 495);
-    text((int)jarakpertama+" m", 1205, 170);
+    text((int)jarakpertama+" m", 1205, 195);
     textAlign(LEFT);
   }
   popMatrix();
+  
+  //println(tklat[1] +"  "+ tklon[1]);
+  println(commListbox.isOpen() );
 }
 

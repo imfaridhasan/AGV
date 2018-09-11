@@ -159,23 +159,25 @@ public void setup() {
     cam.start();
   } 
   cp5.addToggle("togglecam")
-    .setPosition(1080, 38)
+    .setPosition(1082, 38)
       .setSize(40, 15)
         .setValue(true)
           .setMode(ControlP5.SWITCH)
             .setColorBackground(0) 
               .setCaptionLabel("camera") 
                 .setColorActive( color( 24, 179, 113 ) )
+                .setColorCaptionLabel(0)
                   ;  
 
   cp5.addToggle("toggleinfo")
-    .setPosition(1022, 38)
+    .setPosition(1025, 38)
       .setSize(40, 15)
         .setValue(true)
           .setMode(ControlP5.SWITCH)
             .setColorBackground(0) 
               .setCaptionLabel("info") 
                 .setColorActive( color( 24, 179, 113 ) )
+                  .setColorCaptionLabel(0)
                   ; 
 
   cp5.addButton("switchbutton")
@@ -282,11 +284,12 @@ void mouseClicked() {
   //  }
   //  }
   boolean region = true;
-  if (mouseY < 55) {
+  if (mouseY < 80) {
     region = false;
   }
-  else if((mouseX > 1165)&&(mouseY < 111)){
-    region = false;
+  else if((mouseX > 1140)&&(mouseY < 125)){
+    if(commListbox.isOpen()==true){
+    region = false;}
   }
   else if((mouseX < 328)&&(mouseY > 447)){
     if (camtoggle==0 && toggleinfo==1) {

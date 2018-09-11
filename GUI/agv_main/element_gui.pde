@@ -160,6 +160,8 @@ void infoTopbar() {
   text("2: "+"7.50"+"V", 1146, 35);
   popMatrix();
   textFont(font);
+  fill(204,204,204);
+  rect(0, 50, width-50, 5,0,0,5,5);
   float bateraibar=map(baterai, 0, 100, 0, width-50);
   if (baterai>=30) {
     fill(24, 179, 113);
@@ -192,7 +194,7 @@ void infoTopbar() {
 }
 void infoLegenda() {
   pushMatrix();
-  translate(-20, 30);
+  translate(-20, 55);
   compass.draw();
   //textSize(30);
   popMatrix();

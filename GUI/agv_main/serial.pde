@@ -1,9 +1,9 @@
 void setup_UART()
 {
   //Comport List Selection                   
-  commListbox = cp5.addListBox("portComList",1170,38,80,240); // make a listbox and populate it with the available comm ports
+  commListbox = cp5.addListBox("portComList",1140,65,100,240) ; // make a listbox and populate it with the available comm ports
 
-  commListbox.captionLabel().set("PORT COM");commListbox.setColorBackground(0); commListbox.setColorActive( color( 24,179,113 ) ); commListbox.setColorForeground( color( 24,179,113 ) );
+  commListbox.captionLabel().set("PORT COM");commListbox.setColorBackground(0); commListbox.setColorActive( color( 24,179,113 ) ); commListbox.setColorForeground( color( 24,179,113 ) );commListbox.setBarHeight(15) ; 
   commListbox.close();
   for(int i=0;i<Serial.list().length;i++) 
   {
@@ -15,7 +15,7 @@ void setup_UART()
   
   commListbox.addItem("Close Comm",++commListMax); // addItem(name,value)
   // text label for which comm port selected
-  txtlblWhichcom = cp5.addTextlabel("txtlblWhichcom","No Port Selected",1168,15); // textlabel(name,text,x,y)
+  txtlblWhichcom = cp5.addTextlabel("txtlblWhichcom","No Port Selected",1137,37).setColor(0); // textlabel(name,text,x,y)
   
 }
 
