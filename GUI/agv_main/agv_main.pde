@@ -66,8 +66,9 @@ String shortifyPortName(String portName, int maxlen)
 
 //data-data
 int switchbuttonvar;
-float baterai=100;
-float baterai1=50;
+float baterai1raw=11.5,baterai2raw=11;
+float baterai=map(baterai1raw,0,14.7,0,100);
+float baterai1=map(baterai2raw,0,14.7,0,100);
 int jmlsatelit=10;
 float[] datamasuk;
 float  jarak, jarakpertama, roll, pitch;

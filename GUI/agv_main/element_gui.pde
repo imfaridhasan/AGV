@@ -156,8 +156,8 @@ void infoTopbar() {
   rect(1141, 11, 60, 28, 2);
   fill(0);
   textSize(12);
-  text("1: "+"10.50"+"V", 1146, 23);
-  text("2: "+"7.50"+"V", 1146, 35);
+  text("1: "+baterai1raw+"V", 1146, 23);
+  text("2: "+baterai2raw+"V", 1146, 35);
   popMatrix();
   textFont(font);
   fill(204,204,204);

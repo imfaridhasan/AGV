@@ -28,7 +28,7 @@ void InitSerial(float portValue)
   if (portValue < commListMax) {
     String portPos = Serial.list()[int(portValue)];
     txtlblWhichcom.setValue("Connected = " + shortifyPortName(portPos, 8));
-    serial = new Serial(this, portPos, 57600);
+    serial = new Serial(this, portPos, 115200);
     serial.bufferUntil('\n');
     serial_conect=1;
   } else 
@@ -65,6 +65,8 @@ void serialEvent(Serial s) {
     headingraw = (int)datamasuk[3];
     roll = (float)datamasuk[4];
     pitch = (float)datamasuk[5];
+    baterai1raw = (float)datamasuk[6];
+    baterai2raw = (float)datamasuk[7];
   }
   catch(RuntimeException e)
   {
@@ -80,15 +82,25 @@ void kirimSerial() {
   //kirim = "*"+","+derajatbelok+","+i+","+666+"\n \r";
 
   if (serial_conect==1) {  
-    int depanlat= int((float)tklat[1]);
-    int depanlon= int((float)tklon[1]);
-    float belakanglat= (float)tklat[1]-depanlat;
-    float belakanglon= (float)tklon[1]-depanlon;
+//    int depanlat= int((float)tklat[1]);
+//    int depanlon= int((float)tklon[1]);
+//    float belakanglat= (float)tklat[1]-depanlat;
+//    float belakanglon= (float)tklon[1]-depanlon;
 //    
-    //kirim = "*" + "," + tklat[1] + "," + tklon[1] + "," +"#" + "\n \r";
-    kirim = "*" + "," + depanlat + "," + belakanglat + "," + depanlon + "," + belakanglon + "," + "#" + "\n \r";
-    serial.write(kirim);
-    println(kirim);
+//    //kirim = "*" + "," + tklat[1] + "," + tklon[1] + "," +"#" + "\n \r";
+//    kirim = "*" + "," + depanlat + "," + belakanglat + "," + depanlon + "," + belakanglon + "," + "#" + "\n \r";
+//    serial.write(kirim);
+
+    byte out[]=new byte[6];
+      out[0]=byte(255);
+      out[1]=byte(derajatbelok-(derajatbelok%255));
+      out[2]=byte(derajatbelok%255);
+      out[3]=byte(i);
+      out[4]=byte(0);
+      out[5]=byte(254);
+  
+    serial.write(out);
+    println(out);
   }
 }
 
