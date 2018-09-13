@@ -66,10 +66,10 @@ String shortifyPortName(String portName, int maxlen)
 
 //data-data
 int switchbuttonvar;
-float baterai1raw=7.45,baterai2raw=7.45;
+float baterai1raw=3.5,baterai2raw=7.45;
 float baterai=map(baterai1raw,0,14.7,0,100);
 float baterai1=map(baterai2raw,0,14.7,0,100);
-int jmlsatelit=10;
+int jmlsatelit=0;
 float[] datamasuk;
 float  jarak, jarakpertama, roll, pitch;
 float tklatnow, tklonnow,lat=-7.765806, lng=110.374816;
@@ -200,6 +200,8 @@ public void setup() {
 }
 
 public void draw() {
+   baterai=map(baterai1raw,0,14.7,0,100);
+   baterai1=map(baterai2raw,0,14.7,0,100);
   
   if (cam.available() == true) {
       cam.read();
